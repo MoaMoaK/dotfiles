@@ -6,12 +6,12 @@ the available width and height of the terminal
 ## Conditions
 
 ```
-A = There is enough **width** for **both** output and the separator
-B = There is enough **width** for output **1**
-C = There is enough **width** for output **2**
-D = There is enough **height** for output **1**
-E = There is enough **height** for output **1**
-F = The output **2** is **prioritized**
+A = There is enough WIDTH for BOTH OUTPUTS and the separator
+B = There is enough WIDTH for OUTPUT 1
+C = There is enough WIDTH for OUTPUT 2
+D = There is enough HEIGHT for OUTPUT 1
+E = There is enough HEIGHT for OUTPUT 1
+F = The OUTPUT 2 is PRIORITIZED
 ```
 
 
@@ -26,10 +26,10 @@ A => C
 ## Outputs
 
 ```
-R1 = print **both** outputs and the separator
-R2 = print only output **1**
-R3 = print only output **2**
-R4 = print output **default**
+R1 = print BOTH OUTPUTS and the separator
+R2 = print only OUTPUT 1
+R3 = print only OUTPUT 2
+R4 = print OUTPUT DEFAULT
 ```
 
 
