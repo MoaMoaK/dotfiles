@@ -59,15 +59,13 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  gitfast
   autopep8
-  catimg
   command-not-found
   common-aliases
   compleat
   django
-  docker
-  pip
+  gitfast
+  pep8
   pylint
   python
   screen
