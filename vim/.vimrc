@@ -59,12 +59,12 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Powerline
-set rtp+=/usr/share/powerline/powerline/bindings/vim
+" Powerline config
+set rtp+=/usr/share/powerline/bindings/vim
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 set laststatus=2
 
-" Tabs as 4 space
+" Tabs as 4 spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
