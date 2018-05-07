@@ -97,10 +97,18 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Alias for controlling OpenVPN
+ovpn () {
+    typeset OVPN_DIR="/etc/openvpn/client/"
+    if [ -f "$OVPN_DIR$1/$1.ovpn" ]; then
+        sudo openvpn "$OVPN_DIR$1/$1.ovpn"
+    else
+        echo "$1 is not an available VPN in $OVPN_DIR"
+    fi
+}
+alias ovpnstop="sudo killall -SIGTERM openvpn"
+alias ovpnrestart="sudo killall -SIGHUP openvpn"
 
 # MOTD
 MOTD_SCRIPT="$HOME/dotfiles/utils/motd.sh"
