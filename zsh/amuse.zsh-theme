@@ -23,6 +23,9 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+# Deactivate default virtualenv prompt
+VIRTUAL_ENV_DISABLE_PROMPT=True
+
 if type "virtualenv_prompt_info" > /dev/null; then
   RPROMPT='%{$fg_bold[red]%}$(virtualenv_info)%{$reset_color%}'
 else
