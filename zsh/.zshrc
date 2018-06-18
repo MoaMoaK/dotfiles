@@ -117,7 +117,8 @@ alias ovpnstop="sudo killall -SIGTERM openvpn"
 alias ovpnrestart="sudo killall -SIGHUP openvpn"
 
 # MOTD
-MOTD_SCRIPT="$HOME/dotfiles/utils/motd.sh"
+MOTD_SCRIPT="/no/exist"
+#MOTD_SCRIPT="$HOME/dotfiles/utils/motd.sh"
 if [ -f $MOTD_SCRIPT ]; then
     source $MOTD_SCRIPT
 fi
