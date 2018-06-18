@@ -6,24 +6,46 @@ virtualenv_info() {
   fi
 }
 
+context_info() {
+  local user=`whoami`
+
+  if [[ "$user" != "$DEFAULT_USER" ]]; then
+    echo "%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%})$user%{$reset_color%}"
+  fi
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    echo "@%{$fg_bold[yellow]%}%m%{$reset_color%}"
+  fi
 }
 
+path_info() {
+  if [[ -w "${PWD}" ]]; then
+    echo "%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}"
+  else
+    echo "%{$fg_bold[red]%}${PWD/#$HOME/~}%{$reset_color%}"
+  fi
 }
+
+time_info() {
+  echo "%{$fg_bold[yellow]%}[%*]%{$reset_color%}"
+}
+
 
 PROMPT='
-%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) ⌚ %{$fg_bold[red]%}%*%{$reset_color%}
+$(context_info)%{$fg_bold[blue]%}➤ %{$reset_color%}$(path_info)$(git_prompt_info) $(time_info)
 %(!.%{$fg_bold[red]%}#%{$reset_color%}.%{$fg_bold[green]%}$%{$reset_color%}) '
 
-# Must use Powerline font, for \uE0A0 to render.
-ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}\uE0A0 "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+# Git decoration based on OMZ base git functions.
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[magenta]%}<%{$reset_color%}$(git_prompt_remote)%{$fg[magenta]%} "
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[magenta]%}>%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔"
+ZSH_THEME_GIT_PROMPT_REMOTE_EXISTS="%{$fg[green]%}\uE0A0%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_REMOTE_MISSING="%{$fg[red]%}\uE0A0%{$reset_color%}"
 
 # Deactivate default virtualenv prompt
 VIRTUAL_ENV_DISABLE_PROMPT=True
 
 if type "virtualenv_prompt_info" > /dev/null; then
-  RPROMPT='%{$fg_bold[red]%}$(virtualenv_info)%{$reset_color%}'
+  RPROMPT='$(virtualenv_info)'
 fi
