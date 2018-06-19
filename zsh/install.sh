@@ -8,4 +8,4 @@ sh -c "$(wget $OMZ_INSTALL -O -)"
 
 # link configuration
 ln -fs "$CUR_DIR/$ZSH_RC" "$HOME/$ZSH_RC"
-ln -fs "$CUR_DIR/$ZSH_THEME" "$HOME/.oh-my-zsh/custom/themes/$ZSH_RC"
+ln -fs "$CUR_DIR/$ZSH_THEME" "$HOME/.oh-my-zsh/custom/themes/$ZSH_THEME"
