@@ -91,6 +91,16 @@ export EDITOR='vim'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# Alias for self-updating commands
+live () {
+    typeset REFRESH_TIME="1s"
+    while true; do
+        clear
+        eval $@
+        sleep "$REFRESH_TIME"
+    done;
+}
+
 # Alias for gloga without pager
 alias gloganop="git --no-pager log --oneline --graph --all --decorate --max-count=$(($(tput lines)-15))"
 
