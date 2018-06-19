@@ -91,6 +91,9 @@ export EDITOR='vim'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# Alias for gloga without pager
+alias gloganop="git --no-pager log --oneline --graph --all --decorate --max-count=$(($(tput lines)-15))"
+
 # Alias for sudo with preserv env
 alias sudo="sudo -Es"
 
