@@ -13,7 +13,7 @@ main() {
         fi
 
         # Run this script
-        exec "$CUR_DIR/$module/install.sh"
+        /bin/sh "$CUR_DIR/$module/install.sh"
 
         echo "Setup of $module done."
     done;
