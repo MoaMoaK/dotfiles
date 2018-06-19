@@ -12,7 +12,9 @@ context_info() {
   if [[ "$user" != "$DEFAULT_USER" ]]; then
     print -n "%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%})$user%{$reset_color%}"
   fi
-  if [[ -n "$SSH_CONNECTION" ]]; then
+  if [[ -n "$container" ]]; then
+    print -n "@%{$fg_bold[yellow]%}lxc(%m)%{$reset_color%}"
+  elif [[ -n "$SSH_CONNECTION" ]]; then
     print -n "@%{$fg_bold[yellow]%}%m%{$reset_color%}"
   fi
 }
