@@ -2,7 +2,7 @@
 
 virtualenv_info() {
   if [[ $VIRTUAL_ENV ]]; then
-    echo "%{$fg_bold[red]%}($(basename $VIRTUAL_ENV))%{$reset_color%}"
+    print -n "%{$fg_bold[red]%}($(basename $VIRTUAL_ENV))%{$reset_color%}"
   fi
 }
 
@@ -10,23 +10,23 @@ context_info() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" ]]; then
-    echo "%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%})$user%{$reset_color%}"
+    print -n "%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%})$user%{$reset_color%}"
   fi
   if [[ -n "$SSH_CONNECTION" ]]; then
-    echo "@%{$fg_bold[yellow]%}%m%{$reset_color%}"
+    print -n "@%{$fg_bold[yellow]%}%m%{$reset_color%}"
   fi
 }
 
 path_info() {
   if [[ -w "${PWD}" ]]; then
-    echo "%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}"
+    print -n "%{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}"
   else
-    echo "%{$fg_bold[red]%}${PWD/#$HOME/~}%{$reset_color%}"
+    print -n "%{$fg_bold[red]%}${PWD/#$HOME/~}%{$reset_color%}"
   fi
 }
 
 time_info() {
-  echo "%{$fg_bold[yellow]%}[%*]%{$reset_color%}"
+  print -n "%{$fg_bold[yellow]%}[%*]%{$reset_color%}"
 }
 
 
