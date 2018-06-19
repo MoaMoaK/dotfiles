@@ -119,6 +119,8 @@ ovpn () {
 alias ovpnstop="sudo killall -SIGTERM openvpn"
 alias ovpnrestart="sudo killall -SIGHUP openvpn"
 
+# Force LXC to change HOME upon attach
+alias lxc-attach="lxc-attach --set-var HOME=/root"
 
 # MOTD
 MOTD_SCRIPT="/no/exist"
