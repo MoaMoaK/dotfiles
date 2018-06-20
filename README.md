@@ -14,4 +14,4 @@ git clone https://github.com/MoaMoaK/dotfiles.git
 ## vim
 
 * vim *(on ubuntu)* or vim-nox *(on debian)*
-* fonts-powerline
+* powerline
