@@ -78,7 +78,28 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# The user for which ZSH theme should not display name
 DEFAULT_USER="moamoak"
+
+# Sett the LC tot french if available
+LANG=en_US.utf8
+if locale -a | grep -q "fr_FR.utf8"; then
+    LC_COMMON="fr_FR.utf8"
+else
+    LC_COMMON="en_US.utf8"
+fi
+LC_CTYPE=$LC_COMMON
+LC_NUMERIC=$LC_COMMON
+LC_TIME=$LC_COMMON
+LC_COLLATE=$LC_COMMON
+LC_MONETARY=$LC_COMMON
+LC_MESSAGES=$LC_COMMON
+LC_PAPER=$LC_COMMON
+LC_NAME=$LC_COMMON
+LC_ADDRESS=$LC_COMMON
+LC_TELEPHONE=$LC_COMMON
+LC_MEASUREMENT=$LC_COMMON
+LC_IDENTIFICATION=$LC_COMMON
 
 export MANPATH="/usr/local/man:$MANPATH"
 
