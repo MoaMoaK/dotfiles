@@ -143,6 +143,23 @@ alias ovpnrestart="sudo killall -SIGHUP openvpn"
 # Force LXC to change HOME upon attach
 alias lxc-attach="lxc-attach --set-var HOME=/root"
 
+# Alias for temporary directories
+alias cdtmp="cd $(mktemp -d)"
+cptmp () { typeset tmpdir="$(mktemp -d)/"; cp -R $@ "$tmpdir"; echo "$tmpdir" }
+mvtmp () { typeset tmpdir="$(mktemp -d)/"; mv $@ "$tmpdir"; echo "$tmpdir" }
+bak () {
+    while [ "$#" -gt 0 ]; do
+        typeset bak_dir="$1.bak"
+        typeset counter=0
+        while [ -f "$bak_dir" ]; do
+            counter=$((counter+1))
+            bak_dir="$1.bak_$counter"
+        done
+        cp -R $1 "$bak_dir"
+        shift
+    done
+}
+
 # MOTD
 MOTD_SCRIPT="/no/exist"
 #MOTD_SCRIPT="$HOME/dotfiles/utils/motd.sh"
