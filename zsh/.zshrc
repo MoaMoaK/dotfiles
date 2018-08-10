@@ -160,6 +160,9 @@ bak () {
     done
 }
 
+# Trigger sl for similar mistakes
+alias gti="sl"
+
 # MOTD
 MOTD_SCRIPT="/no/exist"
 #MOTD_SCRIPT="$HOME/dotfiles/utils/motd.sh"
