@@ -31,9 +31,13 @@ time_info() {
   print -n "%{$fg_bold[yellow]%}[%*]%{$reset_color%}"
 }
 
+execcode_info() {
+  print -n "%(?..%{$fg_bold[red]%}(%?%)%{$reset_color%})"
+}
+
 
 PROMPT='
-$(context_info)%{$fg_bold[blue]%}➤ %{$reset_color%}$(path_info)$(git_prompt_info) $(time_info)
+$(context_info)%{$fg_bold[blue]%}➤ %{$reset_color%}$(path_info)$(git_prompt_info) $(time_info) $(execcode_info)
 %(!.%{$fg_bold[red]%}#%{$reset_color%}.%{$fg_bold[green]%}$%{$reset_color%}) '
 
 # Git decoration based on OMZ base git functions.
