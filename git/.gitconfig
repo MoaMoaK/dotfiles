@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	pager = less -XF
 [user]
 	email = dev@maelkervella.eu
 	name = Maël Kervella
