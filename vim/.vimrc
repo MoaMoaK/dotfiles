@@ -60,11 +60,16 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " Powerline config
-set rtp+=/usr/share/powerline/bindings/vim
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-set laststatus=2
+if has("python3")
+    " Exception if inisde virtualenv because powerline may not be installed
+    if empty($VIRTUAL_ENV)
+        set rtp+=/usr/share/powerline/bindings/vim
+        python3 from powerline.vim import setup as powerline_setup
+        python3 powerline_setup()
+        python3 del powerline_setup
+        set laststatus=2
+    endif
+endif
 
 " Tabs as 4 spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
